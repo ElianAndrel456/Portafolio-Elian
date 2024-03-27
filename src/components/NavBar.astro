@@ -1,0 +1,74 @@
+---
+import { ITEMS_LINKS_NAVIGATION } from '../constants/items_links_navigation'
+import DarkIcon from '../icons/DarkIcon.astro'
+import LightIcon from '../icons/LightIcon.astro'
+import ItemNavigation from './ItemNavigation.astro'
+---
+
+<nav
+  id='nav'
+  class='dark:text-white top-0 fixed flex justify-between w-full px-4 md:px-40 py-4 transition-all duration-300 ease-in-out z-10 overflow-hidden bg-white dark:bg-transparent h-14 bg-opacity-40'
+>
+  <div class='-translate-y-16'>
+    <a href='/'>
+      <img
+        id='gif_logo'
+        src='/video/logo_gif.gif'
+        alt=''
+        width='150'
+        height='150'
+        class='dark:invert transition-all duration-300 ease-in-out'
+      />
+    </a>
+  </div>
+  <ul class='gap-8 hidden md:flex'>
+    {ITEMS_LINKS_NAVIGATION.map(({ name, url }) => <ItemNavigation href={url}>{name}</ItemNavigation>)}
+  </ul>
+  <div>
+    <button id='buttonChangeTheme'>
+      <DarkIcon className='w-8 h-8 hidden md:block md:dark:hidden' />
+      <LightIcon className='w-8 h-8 hidden md:dark:block' />
+    </button>
+  </div>
+  <div class='md:hidden'>MENY</div>
+</nav>
+<div class='fixed top-0 left-0 h-screen w-screen bg-white dark:bg-black bg-opacity-45 translate-x-full dark:text-white'>
+  HOLA
+</div>
+
+<script>
+  const $nav = document.getElementById('nav')!
+  const $logo = document.getElementById('gif_logo')!
+  function handleScroll() {
+    if (window.scrollY > 0) {
+      $nav.classList.remove('bg-white')
+      $nav.classList.add('shadow-md', 'text-white', 'bg-black')
+      $logo.classList.add('invert')
+    } else {
+      $nav.classList.remove('shadow-md', 'text-white', 'bg-black')
+      $nav.classList.add('bg-white')
+      $logo.classList.remove('invert')
+    }
+  }
+
+  handleScroll()
+
+  window.addEventListener('scroll', () => {
+    handleScroll()
+  })
+</script>
+<script>
+  import { Theme } from '../model/Theme'
+
+  const $buttonChangeTheme = document.getElementById('buttonChangeTheme')!
+
+  $buttonChangeTheme.addEventListener('click', () => {
+    Theme.toggleTheme()
+  })
+</script>
+
+<script>
+  function onOpenMenuHamburger() {
+    console.log('clcik')
+  }
+</script>

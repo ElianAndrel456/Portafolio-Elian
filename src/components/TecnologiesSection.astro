@@ -1,0 +1,69 @@
+---
+import ItemTecnology from './ItemTecnology.astro'
+import SectionTitle from './SectionTitle.astro'
+
+const TECNOLOGIES_TO_RENDER = [
+  {
+    name: 'NextJS',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: '',
+  },
+  {
+    name: 'NuxtJS',
+    text: 'Framework de Vue que permite renderizado del lado del servidor y del lado del cliente',
+    class: 'row-span-3',
+  },
+  {
+    name: 'Astro',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: 'md:col-span-2',
+  },
+  {
+    name: 'Flutter',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: '',
+  },
+  {
+    name: 'Express',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: 'row-span-2',
+  },
+  {
+    name: 'SpringBoot',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: '',
+  },
+  {
+    name: 'MongoDB',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: 'col-span-2',
+  },
+  {
+    name: 'MySQL',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: 'md:col-span-2',
+  },
+  {
+    name: 'Git',
+    text: 'Framework de React que permite renderizado del lado del servidor y del lado del cliente',
+    class: '',
+  },
+]
+---
+
+<section id='tecnologies_section'>
+  <SectionTitle>Tecnologias</SectionTitle>
+  <div>
+    <ul class='grid grid-cols-2 md:grid-cols-5 grid-rows-3 gap-2 my-8'>
+      {
+        TECNOLOGIES_TO_RENDER.map((tech) => (
+          <ItemTecnology
+            name={tech.name}
+            text={tech.text}
+            className={tech.class}
+          />
+        ))
+      }
+    </ul>
+  </div>
+</section>

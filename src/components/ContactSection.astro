@@ -1,0 +1,55 @@
+---
+import SectionTitle from './SectionTitle.astro'
+---
+
+<section
+  id='contact_section'
+  class='my-10'
+>
+  <SectionTitle>Contacto</SectionTitle>
+  <div class='flex gap-4 relative'>
+    <form class='max-w-4xl w-full dark:text-white space-y-4'>
+      <div class='flex flex-col gap-2'>
+        <label for='name'>Nombre</label>
+        <input
+          class='rounded border py-2 px-4 bg-opacity-20 bg-white'
+          type='text'
+          id='name'
+          name='name'
+          required
+        />
+      </div>
+      <div class='flex flex-col gap-2'>
+        <label for='email'>Email</label>
+        <input
+          class='rounded border py-2 px-4 bg-opacity-20 bg-white'
+          type='email'
+          id='email'
+          name='email'
+          required
+        />
+      </div>
+      <div class='flex flex-col gap-2'>
+        <label for='message'>Mensaje</label>
+        <textarea
+          rows='6'
+          class='rounded border py-2 px-4 bg-opacity-20 bg-white'
+        ></textarea>
+      </div>
+      <button
+        type='submit'
+        class='px-8 py-4 bg-black text-white rounded-2xl mt-4 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white dark:hover:border-white dark:hover:border transition-colors duration-300 ease-in-out'
+        >Enviar</button
+      >
+    </form>
+    <div class='w-full absolute md:relative -z-10'>
+      <img
+        src='/image/image_contact.png'
+        alt=''
+        width='400'
+        height='400'
+        class='mx-auto animate-down-up opacity-35 md:opacity-100'
+      />
+    </div>
+  </div>
+</section>

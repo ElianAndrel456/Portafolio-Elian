@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+import { ITEMS_PROJECTS } from '../../constants/items_projects'
+export function getStaticPaths() {
+  return [{ params: { id: '1' } }, { params: { id: '2' } }]
+}
+
+const { id } = Astro.params
+
+const [project] = ITEMS_PROJECTS.filter((item) => item.id === id)
+---
+
+<Layout title={project.title}>
+  <div>
+    <h1>{project.title}</h1>
+    <img
+      transition:animate='slide'
+      transition:name={project.title}
+      src={project.image}
+      alt={project.title}
+      width='400'
+      height='400'
+    />
+    <p>This is a post</p>
+  </div>
+</Layout>

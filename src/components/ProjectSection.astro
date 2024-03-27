@@ -1,0 +1,14 @@
+---
+import { ITEMS_PROJECTS } from '../constants/items_projects'
+import CardProject from './CardProject.astro'
+import SectionTitle from './SectionTitle.astro'
+---
+
+<section id='projects_section'>
+  <SectionTitle>Proyectos</SectionTitle>
+  <article class='my-8'>
+    <div class='grid grid-cols-1 md:grid-cols-3 gap-4'>
+      {ITEMS_PROJECTS.map((project) => <CardProject project={project} />)}
+    </div>
+  </article>
+</section>

@@ -1,0 +1,38 @@
+---
+import { ITEMS_REDIRECT_ICON } from '../constants/items_redirect'
+import DownLoadIcon from '../icons/DownLoadIcon.astro'
+import ShineText from './ShineText.astro'
+---
+
+<header class='w-full h-screen flex flex-col items-center justify-center gap-4 px-4 text-center'>
+  <button
+    class='cursor-pointer border px-4 py-1 rounded-xl flex gap-2 hover:text-white hover:bg-black transition-all ease-in-out duration-300 dark:text-white dark:bg-black dark:hover:bg-white dark:hover:text-black dark:border-none'
+  >
+    <DownLoadIcon className='w-4 h-4' />
+    <span class='text-sm'> Descargar cv </span>
+  </button>
+  <ShineText
+    as='h1'
+    className='text-5xl font-semibold'
+    >Elian Joyo Villanueva</ShineText
+  >
+  <h2 class='text-3xl font-semibold dark:text-white'>Software Developer</h2>
+  <p class='text-gray-500'>
+    Soy un desarrollador de software con experiencia en el desarrollo de aplicaciones web y móviles. Me apasiona la
+    tecnología y la programación, y me encanta aprender cosas nuevas.
+  </p>
+  <ul class='flex gap-4 mt-8'>
+    {
+      ITEMS_REDIRECT_ICON.map(({ name, url, Icon }) => (
+        <li>
+          <a
+            href={url}
+            class='w-16 h-16 border text-gray-800 dark:text-white dark:border-none dark:hover:bg-white dark:hover:text-black  rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-gray-800 hover:text-white overflow-hidden'
+          >
+            <Icon className='w-10 h-10' />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>

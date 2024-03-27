@@ -1,0 +1,17 @@
+---
+interface Props {
+  name: string
+  text: string
+  className: string
+}
+
+const { className, name, text } = Astro.props
+
+const defaultClassName =
+  'border rounded shadow-lg bg-opacity-40 cursor-pointer hover:border-black transition-all duration-300 ease-in-out text-wrap bg-white dark:bg-black dark:bg-opacity-10 dark:border-gray-700 dark:hover:border-white px-4 py-10 flex flex-col items-center gap-10 justify-center'
+---
+
+<li class:list={[defaultClassName, className]}>
+  <h3 class='text-xl dark:text-white'>{name}</h3>
+  <p class='text-gray-400'>{text}</p>
+</li>

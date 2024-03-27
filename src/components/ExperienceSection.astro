@@ -1,0 +1,27 @@
+---
+import { ITEMS_EXPERIENCE } from '../constants/items_experience'
+import SectionTitle from './SectionTitle.astro'
+import TimeLine from './exp/TimeLine.astro'
+---
+
+<section id='experience_section'>
+  <SectionTitle>Experiencia</SectionTitle>
+  <article class='my-8'>
+    {ITEMS_EXPERIENCE.map((exp) => <TimeLine {...exp} />)}
+  </article>
+</section>
+
+<script>
+  const $boxes = document.querySelectorAll('[data-animation]')
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log(entry.target)
+        entry.target.classList.add('animate-fade-in')
+      }
+    })
+  })
+
+  $boxes.forEach((box) => observer.observe(box))
+</script>

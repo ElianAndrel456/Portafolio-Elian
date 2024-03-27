@@ -1,0 +1,58 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import Background from '../components/Background.astro'
+import NavBar from '../components/NavBar.astro'
+import Footer from '../components/Footer.astro'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='description'
+      content='Astro description'
+    />
+    <meta
+      name='viewport'
+      content='width=device-width'
+    />
+    <link
+      rel='icon'
+      type='image/svg+xml'
+      href='/favicon.svg'
+    />
+
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Background />
+    <NavBar />
+    <slot />
+    <Footer />
+    <style is:global>
+      * {
+        scroll-behavior: smooth;
+      }
+      textarea {
+        resize: vertical;
+      }
+    </style>
+    <script>
+      import { Theme } from '../model/Theme'
+      Theme.setThemeToHTML()
+
+      // Listen for Astro page transitions
+      document.addEventListener('astro:after-swap', () => {
+        Theme.setThemeToHTML()
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+import type { HTMLTag } from 'astro/types'
+interface Props<Tag extends HTMLTag> {
+  as: Tag
+  className: string
+}
+
+const { as: Tag, className } = Astro.props
+---
+
+<Tag
+  class:list={[
+    className,
+    'inline-flex animate-background-shine dark:bg-[linear-gradient(110deg,#f3f3f3,45%,#1e293b,55%,#f3f3f3)] bg-[linear-gradient(110deg,#1e293b,45%,#939393,55%,#1e293b)] bg-[length:250%_100%] bg-clip-text text-transparent',
+  ]}
+>
+  <slot />
+</Tag>
